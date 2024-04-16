@@ -25,8 +25,8 @@ int main(void)
 	}
 	if (child_pid == 0)
 	{
-		printf(" \n\n");
 		printf("ID child: %u\n\n ID father: %u\n", getpid(), getppid());
+		printf(" \n\n");
 	}
 	else
 	{
