@@ -17,6 +17,7 @@ int main(int argc, char **argv)
 		printf("> ");
 		getline(&tmp, &len, stdin);
 		command = args_betty(tmp);
+		printf("%s \n", command);
 	}
 	return (0);
 }
