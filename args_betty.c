@@ -1,42 +1,41 @@
-#include "main.h"
+#include "shell.h"
 
 /**
- * args_dans_tableau - placer les args (mots) d'une string dans un tableau
- *
- * @user_input: chaine de caractère à traiter
- * Return: tableau d'argument (mots) de l'input
+ * args_betty - place the args (words) of a string in an array
+ * @user_input: character string to process
+ * Return: array of argument (words) of the input
  */
-char **args_dans_tableau(char *user_input)
+char **args_betty(char *user_input)
 {
-	const char *chaineEntree = user_input;
-	int nbMots = 0, i;
+	const char *str_entry = user_input;
+	int count_mots = 0, i;
 	char **mots;
-	char *copieChaine = strdup(chaineEntree);
-	char *jeton = strtok(copieChaine, " \n\t");
+	char *str_cpy = strdup(str_entry);
+	char *j = strtok(str_cpy, " \n\t");
 
-	while (jeton != NULL) /* compte ne nombre de mot */
+	while (j != NULL) /* compte le nombre de mot */
 	{
-		nbMots++;
-		jeton = strtok(NULL, " \n\t");
+		count_mots++;
+		j = strtok(NULL, " \n\t");
 	}
 
-	mots = malloc((nbMots + 1) * sizeof(char *)); /* dimensionne tableau */
+	mots = malloc((count_mots + 1) * sizeof(char *)); /* dimensionne tableau */
 
-	free(copieChaine);
-	copieChaine = strdup(chaineEntree); /* réinitialise la copieChaine */
+	free(str_entry);
+	str_cpy = strdup(str_entry); /* réinitialise la copieChaine */
 
-	jeton = strtok(copieChaine, " ");
+	j = strtok(str_cpy, " ");
 
 	i = 0;
-	while (jeton != NULL) /* place les mots dans le tableau */
+	while (j != NULL) /* place les mots dans le tableau */
 	{
-		mots[i] = strdup(jeton);
+		mots[i] = strdup(j);
 		i++;
-		jeton = strtok(NULL, " ");
+		j = strtok(NULL, " ");
 	}
 	mots[i] = NULL; /* ajoute un mot NULL nécessaire pour execve */
 
-	free(copieChaine);
+	free(str_cpy);
 
 	return (mots);
 }
