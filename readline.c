@@ -1,6 +1,6 @@
 #include "shell.h"
 
-char *readline(char *line)
+char readline(char *line)
 {
     char *tmp = NULL;
 	size_t len = 0;
