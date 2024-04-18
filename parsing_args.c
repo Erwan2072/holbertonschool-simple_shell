@@ -12,11 +12,11 @@ char **parsing_args(char *line)
 		exit(EXIT_FAILURE);
 	}
 
-	token = strtok(line, " ");
+	token = strtok(line, " \n");
 	while (token != NULL) {
 		tokens[position] = token;
 		position++;
-		token = strtok(NULL, " ");
+		token = strtok(NULL, " \n");
 	}
 	tokens[position] = NULL;
 	return (tokens);
