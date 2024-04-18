@@ -1,6 +1,6 @@
 #include "shell.h"
 
-char readline(char *line)
+char *readline(char *line)
 {
     char *tmp = NULL;
 	size_t len = 0;
@@ -15,6 +15,6 @@ char readline(char *line)
             perror("readline");
             exit (EXIT_FAILURE);
         }
-	    return(line);
+	    return(tmp);
     }
 }
