@@ -15,10 +15,11 @@ int main(int argc, char **argv)
 
 	while (1)
 	{
-		printf("> ");
+		printf("($) ");
 		tmp = readline();
 		command = parsing_args(tmp);
 		printf("%s \n", tmp);
+		execute(command);
 	}
 	free(tmp);
 	free(command);
