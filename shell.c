@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 	while (1)
 	{
 		printf("> ");
-		getline(&tmp, &len, stdin);
+		tmp = readline();
 		command = parsing_args(tmp);
 		printf("%s \n", tmp);
 	}
