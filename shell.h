@@ -11,7 +11,7 @@
 int main(int argc, char **argv);
 char **args_betty(char *user_input);
 char **parsing_args(char *line);
-char *readline(char *line);
+char *readline(void);
 int execute(char **args);
 
 #endif
