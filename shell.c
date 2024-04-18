@@ -11,12 +11,13 @@ int main(int argc, char **argv)
 {
 	char *tmp = malloc(1024);
 	size_t len = 1024;
+	char **command;
 
 	while (1)
 	{
 		printf("> ");
 		getline(&tmp, &len, stdin);
-		command = args_betty(tmp);
+		command = parsing_args(tmp);
 		printf("%s \n", command);
 	}
 	return (0);

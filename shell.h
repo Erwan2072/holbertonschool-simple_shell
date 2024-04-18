@@ -8,5 +8,6 @@
 
 int main(int argc, char **argv);
 char **args_betty(char *user_input);
+char **parsing_args(char *line);
 
 #endif
