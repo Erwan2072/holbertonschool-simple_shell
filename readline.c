@@ -10,11 +10,11 @@ char readline(char *line)
 		if (getline(&tmp, &len, stdin) == -1)
             if (feof(stdin)) /*la fin du fichier d'entrée a été atteinte (EOF - End Of File)*/
                 exit(EXIT_SUCCESS);/*we recieved an EOF*/
+        else 
+        {
+            perror("readline");
+            exit (EXIT_FAILURE);
+        }
+	    return(line);
     }
-    else 
-    {
-        perror("readline")
-        exit (EXIT_FAILURE);
-    }
-	return(line);
 }
