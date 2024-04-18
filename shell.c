@@ -18,7 +18,9 @@ int main(int argc, char **argv)
 		printf("> ");
 		getline(&tmp, &len, stdin);
 		command = parsing_args(tmp);
-		printf("%s \n", command);
+		printf("%s \n", tmp);
 	}
+	free(tmp);
+	free(command);
 	return (0);
 }
