@@ -9,19 +9,35 @@
  */
 int main(int argc, char **argv)
 {
-	char *tmp = malloc(1024);
-	size_t len = 1024;
-	char **command;
+    char *tmp = NULL;
+    size_t len = 0;
+    char **command = NULL;
 
-	while (1)
-	{
-		printf("($) ");
-		tmp = readline();
-		command = parsing_args(tmp);
-		printf("%s \n", tmp);
-		execute(command);
-	}
-	free(tmp);
-	free(command);
-	return (0);
+    if (argc > 1)
+    {
+        // Mode non interactif : arguments de ligne de commande fournis
+        tmp = argv[1]; // Utilisez le premier argument comme commande
+        command = parsing_args(tmp);
+        execute(command);
+    }
+    else
+    {
+        // Mode interactif : pas d'arguments de ligne de commande
+        while (1)
+        {
+            if (isatty(STDIN_FILENO)) // Vérifie si le programme est en mode interactif
+                printf("($) "); // Affiche le prompt
+            getline(&tmp, &len, stdin); // Lire la commande depuis l'entrée standard
+            command = parsing_args(tmp);
+            execute(command);
+            free(tmp); // Libérer la mémoire allouée par getline
+            tmp = NULL; // Réinitialiser tmp pour éviter les fuites de mémoire
+        }
+    }
+
+    // Libérer la mémoire
+    free(tmp);
+    free(command);
+
+    return 0;
 }
