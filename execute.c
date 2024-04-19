@@ -5,22 +5,30 @@ int execute(char **args)
 {
 	pid_t child_pid, pid;
 	int status;
-	char *env = _which("PATH", **environ);
-
+	printf("Command to execute: ");
+	for (int i = 0; args[i] != NULL; i++)
+	{
+		printf("%s ", args[i]);
+	}
+	printf("\n");
+	char *env = _which(args[0], environ);
+	printf("Env: %s\n", env);
 	child_pid = fork();
 	if (child_pid == 0)
 	{
-		char *envp[] = {env, NULL};
-		if (execve(args[0], args, *env) == -1)
+		if (execve(env, args, environ) == -1)
 		{
 			printf("erreur exec \n");
 			exit(-1);
 		}
 	}
 	else if (child_pid < 0)
+	{
 		printf("erreur fork \n");
+		return(-1);
+	}
 	else
 		pid = wait(&status);
 
-	return (1);
+	return (0);
 }

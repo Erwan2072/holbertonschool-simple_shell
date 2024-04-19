@@ -8,9 +8,10 @@ extern char **environ;
  *
  * Return: 0 if file found, -1 otherwise
  */
-char *_which(int argc, char *argv[])
+char *_which(char *cmd, char **env)
 {
 	char *path = _getenv("PATH", environ);
+	char *filepath = NULL;
 	if (path == NULL)
 	{
 		printf("Error: PATH environment variable not set.\n");
@@ -22,10 +23,11 @@ char *_which(int argc, char *argv[])
 	while (token != NULL)
 	{
 		// Check each directory for the specified file
-		for (int i = 1; i < argc; i++)
+		/*for (int i = 1; i < ; i++)*/
 		{
-			char filepath[1024];
-			sprintf(filepath, "%s/%s", token, argv[i]);
+			char *filepath = malloc(1024);
+			sprintf(filepath, "%s/%s", token, cmd);
+			printf("Before check if exist :%s\n", filepath);
 			// Check if the file exists and is executable
 			if (access(filepath, F_OK | X_OK) == 0)
 			{
@@ -35,7 +37,7 @@ char *_which(int argc, char *argv[])
 		}
 		token = strtok(NULL, ":");
 	}
-
+	free(filepath);
 	return (NULL); // Fichier non trouvé, retourne -1
 }
 
