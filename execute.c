@@ -1,9 +1,11 @@
 #include "shell.h"
+extern char **environ;
 
 int execute(char **args)
 {
 	pid_t child_pid, pid;
 	int status;
+	char *env = _getenv(PATH, environ);
 
 	child_pid = fork();
 	if (child_pid == 0)
