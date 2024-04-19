@@ -1,7 +1,6 @@
 #include "shell.h"
-extern char **environ;
 
-int execute(char **args)
+int execute(char **args, char **env)
 {
 	pid_t child_pid, pid;
 	int status;
@@ -11,12 +10,12 @@ int execute(char **args)
 		printf("%s ", args[i]);
 	}
 	printf("\n");
-	char *env = _which(args[0], environ);
-	printf("Env: %s\n", env);
+	char *file_path = _which(args[0], env);
+	printf("file_path: %s\n", file_path);
 	child_pid = fork();
 	if (child_pid == 0)
 	{
-		if (execve(env, args, environ) == -1)
+		if (execve(file_path, args, env) == -1)
 		{
 			printf("erreur exec \n");
 			exit(-1);

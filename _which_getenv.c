@@ -1,6 +1,5 @@
 #include "shell.h"
 extern char **environ;
-
 /**
  * _which - Find and print the full path of a given executable file in PATH
  * @argc: Number of arguments
@@ -10,20 +9,20 @@ extern char **environ;
  */
 char *_which(char *cmd, char **env)
 {
-	char *path = _getenv("PATH", environ);
+	char *path = NULL;
+	path = _getenv("PATH", environ);
 	char *filepath = NULL;
 	if (path == NULL)
 	{
 		printf("Error: PATH environment variable not set.\n");
 		return (NULL); // Erreur si la variable d'environnement PATH n'est pas définie
 	}
-
+	printf("path: %s, env %s\n",path , env[0]);
 	// Tokenize the PATH variable
 	char *token = strtok(path, ":");
 	while (token != NULL)
 	{
-		// Check each directory for the specified file
-		/*for (int i = 1; i < ; i++)*/
+		printf("while Token != n : path %s filep %s token %s\n", path, filepath, token);
 		{
 			char *filepath = malloc(1024);
 			sprintf(filepath, "%s/%s", token, cmd);

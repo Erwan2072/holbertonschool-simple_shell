@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * main - Entry point of the program.
  *        Prompts the user for input and processes commands.
@@ -7,7 +6,7 @@
  * @argv: Array of command-line arguments.
  * Return: Always 0.
  */
-int main(int argc, char **argv)
+int main(int argc, char **argv, char **env)
 {
     char *tmp = NULL;
     size_t len = 0;
@@ -18,7 +17,7 @@ int main(int argc, char **argv)
         // Mode non interactif : arguments de ligne de commande fournis
         tmp = argv[1]; // Utilisez le premier argument comme commande
         command = parsing_args(tmp);
-        execute(command);
+        execute(command, env);
     }
     else
     {
@@ -29,7 +28,7 @@ int main(int argc, char **argv)
                 printf("($) "); // Affiche le prompt
             getline(&tmp, &len, stdin); // Lire la commande depuis l'entrée standard
             command = parsing_args(tmp);
-            execute(command);
+            execute(command, env);
             free(tmp); // Libérer la mémoire allouée par getline
             tmp = NULL; // Réinitialiser tmp pour éviter les fuites de mémoire
         }
