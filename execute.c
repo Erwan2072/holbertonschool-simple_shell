@@ -5,12 +5,13 @@ int execute(char **args)
 {
 	pid_t child_pid, pid;
 	int status;
-	char *env = _getenv(PATH, environ);
+	char *env = _which("PATH", **environ);
 
 	child_pid = fork();
 	if (child_pid == 0)
 	{
-		if (execve(args[0], args, NULL) == -1)
+		char *envp[] = {env, NULL};
+		if (execve(args[0], args, *env) == -1)
 		{
 			printf("erreur exec \n");
 			exit(-1);
