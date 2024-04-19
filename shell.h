@@ -9,7 +9,7 @@
 #include <sys/wait.h>
 
 int main(int argc, char **argv);
-char **args_betty(char *user_input);
+char **args_array(char *user_input);
 char **parsing_args(char *line);
 char *readline(void);
 int execute(char **args);
