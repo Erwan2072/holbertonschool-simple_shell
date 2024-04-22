@@ -15,8 +15,8 @@ int execute(char **args, char **env)
 	file_path = _which(args[0], env);
 		if (file_path == NULL)
 		{
-			printf("file_path NULL: %s\n", file_path);
-			exit (-1);
+			printf("No such file or directory\n");
+			return (-1);
 		}
 	printf("file_path: %s\n", file_path);
 	child_pid = fork();
@@ -25,13 +25,13 @@ int execute(char **args, char **env)
 		if (execve(file_path, args, env) == -1)
 		{
 			printf("erreur exec \n");
-			exit(-1);
+			return (-1);
 		}
 	}
 	else if (child_pid < 0)
 	{
 		printf("erreur fork \n");
-		return(-1);
+		return (-1);
 	}
 	else
 		wait(&status);
