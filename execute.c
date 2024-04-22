@@ -3,22 +3,15 @@
 int execute(char **args, char **env)
 {
 	pid_t child_pid;
-	int status, i;
+	int status;
 	char *file_path;
 
-	printf("Command to execute: ");
-	for (i = 0; args[i] != NULL; i++)
-	{
-		printf("%s ", args[i]);
-	}
-	printf("\n");
 	file_path = _which(args[0], env);
 		if (file_path == NULL)
 		{
 			printf("No such file or directory\n");
 			return (-1);
 		}
-	printf("file_path: %s\n", file_path);
 	child_pid = fork();
 	if (child_pid == 0)
 	{
