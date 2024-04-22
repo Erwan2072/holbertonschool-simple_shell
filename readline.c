@@ -13,9 +13,13 @@ char *readline(void)
 		}
 		else
 		{
-			perror("readline");
 			exit(EXIT_FAILURE);
 		}
 	}
+	/*if (strcmp(tmp, "exit\n") == 0)
+		{
+			free(tmp);
+			exit(EXIT_SUCCESS);
+			}*/
 	return(tmp);
 }
