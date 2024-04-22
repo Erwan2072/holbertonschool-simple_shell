@@ -1,5 +1,4 @@
 #include "shell.h"
-extern char **environ;
 /**
  * _which - Find and print the full path of a given executable file in PATH
  * @argc: Number of arguments
@@ -9,35 +8,44 @@ extern char **environ;
  */
 char *_which(char *cmd, char **env)
 {
-	char *path = NULL;
-	path = _getenv("PATH", environ);
-	char *filepath = NULL;
-	if (path == NULL)
+	struct stat st;
+	char *copy_path = _getenv("PATH", env), *token; /*find PATH in env*/
+	char copy_cmd[150];
+
+	if (copy_path != NULL)
+		copy_path = strdup(_getenv("PATH", env));
+	/*check if it's an executable or absolute path*/
+	if (cmd[0] == '/' || (cmd[0] == '.'))
 	{
-		printf("Error: PATH environment variable not set.\n");
-		return (NULL); // Erreur si la variable d'environnement PATH n'est pas définie
-	}
-	printf("path: %s, env %s\n",path , env[0]);
-	// Tokenize the PATH variable
-	char *token = strtok(path, ":");
-	while (token != NULL)
-	{
-		printf("while Token != n : path %s filep %s token %s\n", path, filepath, token);
+		if (stat(cmd, &st) == 0)
 		{
-			char *filepath = malloc(1024);
-			sprintf(filepath, "%s/%s", token, cmd);
-			printf("Before check if exist :%s\n", filepath);
-			// Check if the file exists and is executable
-			if (access(filepath, F_OK | X_OK) == 0)
-			{
-				printf("%s\n", filepath);
-				return (filepath); // Fichier trouvé, retourne 0
-			}
+			free(copy_path);
+			return (strdup(cmd));
 		}
-		token = strtok(NULL, ":");
 	}
-	free(filepath);
-	return (NULL); // Fichier non trouvé, retourne -1
+
+	token = strtok(copy_path, ":");
+
+	if (token != NULL)
+	{
+		do {
+			strcpy(copy_cmd, token); /* concatenate*/
+			strcat(copy_cmd, "/");
+			strcat(copy_cmd, cmd);
+
+			if (stat(copy_cmd, &st) == 0)/* compare*/
+			{
+				free(copy_path);
+				return (strdup(copy_cmd)); /* return if it exist*/
+			}
+			else
+				copy_cmd[0] = 0;
+
+			token = strtok(NULL, ":");
+		} while (token != NULL);
+	}
+	free(copy_path);
+	return (NULL);
 }
 
 /**
@@ -58,11 +66,11 @@ char *_getenv(const char *name, char **env)
                 continue;
             else if (env[i][j] == '=' && name[j] == '\0')
             {
-                return (env[i] + j + 1); // Retourne le contenu de la variable d'environnement
+                return (env[i] + j + 1); /*Return contenu var d'environnement*/
             }
             else
                 break;
         }
     }
-    return (NULL); // Variable d'environnement non trouvée, retourne NULL
+    return (NULL); /*Variable d'environnement non trouvée, retourne NULL*/
 }
