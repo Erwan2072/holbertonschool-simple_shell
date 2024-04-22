@@ -8,35 +8,35 @@
  */
 int main(int argc, char **argv, char **env)
 {
-    char *tmp = NULL;
-    size_t len = 0;
-    char **command = NULL;
+	char *tmp = NULL;
+	size_t len = 0;
+	char **command = NULL;
 
-    if (argc > 1)
-    {
-        /*Mode non interactif : arguments de ligne de commande fournis*/
-        tmp = argv[1]; /*Utilisez le premier argument comme commande*/
-        command = parsing_args(tmp);
-        execute(command, env);
-    }
-    else
-    {
-        /*Mode interactif : pas d'arguments de ligne de commande*/
-        while (1)
-        {
-            if (isatty(STDIN_FILENO))/*Vérifie si le prog est> mode interactif*/
-                printf("($) "); /*Affiche le prompt*/
-            getline(&tmp, &len, stdin);/*Lire la commande depuis stdin*/
-            command = parsing_args(tmp);
-            execute(command, env);
-            free(tmp); /*Libérer la mémoire allouée par getline*/
-            tmp = NULL; /*Réinitialiser tmp pour éviter les fuites de mémoire*/
-        }
-    }
+	if (argc > 1)
+	{
+		/*Mode non interactif : arguments de ligne de commande fournis*/
+		tmp = argv[1]; /*Utilisez le premier argument comme commande*/
+		command = parsing_args(tmp);
+		execute(command, env);
+	}
+	else
+	{
+		/*Mode interactif : pas d'arguments de ligne de commande*/
+		while (1)
+		{
+			if (isatty(STDIN_FILENO))/*Vérifie si le prog est> mode interactif*/
+				printf("($) "); /*Affiche le prompt*/
+			getline(&tmp, &len, stdin);/*Lire la commande depuis stdin*/
+			command = parsing_args(tmp);
+			execute(command, env);
+			free(tmp); /*Libérer la mémoire allouée par getline*/
+			tmp = NULL; /*Réinitialiser tmp pour éviter les fuites de mémoire*/
+		}
+	}
 
-    /*Libérer la mémoire*/
-    free(tmp);
-    free(command);
+	/*Libérer la mémoire*/
+	free(tmp);
+	free(command);
 
-    return 0;
+	return (0);
 }
