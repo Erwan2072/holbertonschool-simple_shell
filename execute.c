@@ -3,9 +3,11 @@
 int execute(char **args, char **env)
 {
 	pid_t child_pid, pid;
-	int status;
+	int status, i;
+	char *file_path;
+
 	printf("Command to execute: ");
-	for (int i = 0; args[i] != NULL; i++)
+	for(i = 0; args[i] != NULL; i++)
 	{
 		printf("%s ", args[i]);
 	}
