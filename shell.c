@@ -11,13 +11,14 @@ int main(int argc, char **argv, char **env)
 	char *tmp = NULL;
 	/*size_t len = 0;*/
 	char **command = NULL;
+    int resultat;
 
 	if (argc > 1)
 	{
 		/*Mode non interactif : arguments de ligne de commande fournis*/
 		tmp = argv[1]; /*Utilisez le premier argument comme commande*/
 		command = parsing_args(tmp);
-		execute(command, env);
+		resultat = execute(command, env);
 	}
 	else
 	{
@@ -37,5 +38,5 @@ int main(int argc, char **argv, char **env)
 	/*Libérer la mémoire*/
 	free(command);
 
-	return (0);
+	return (resultat);
 }
