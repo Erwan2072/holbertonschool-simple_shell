@@ -9,7 +9,7 @@ int execute(char **args, char **env)
 	file_path = _which(args[0], env);
 		if (file_path == NULL)
 		{
-			printf("./hsh: No such file or directory\n");
+			printf("./hsh: 1: %s: not found\n", args[0]);
 			return (-1);
 		}
 	child_pid = fork();
@@ -18,7 +18,7 @@ int execute(char **args, char **env)
 		if (execve(file_path, args, env) == -1)
 		{
 			printf("erreur exec \n");
-			return (-1);
+			exit(-1);
 		}
 	}
 	else if (child_pid < 0)
