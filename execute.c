@@ -9,7 +9,7 @@ int execute(char **args, char **env)
 	file_path = _which(args[0], env);
 		if (file_path == NULL)
 		{
-			printf("./hsh: 1: %s: not found\n", args[0]);
+			printf("%s: not found\n", args[0]);
 			return (-1);
 		}
 	child_pid = fork();
