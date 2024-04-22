@@ -35,7 +35,6 @@ int main(int argc, char **argv, char **env)
 	}
 
 	/*Libérer la mémoire*/
-	free(tmp);
 	free(command);
 
 	return (0);
