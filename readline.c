@@ -16,10 +16,10 @@ char *readline(void)
 			exit(EXIT_FAILURE);
 		}
 	}
-	/*if (strcmp(tmp, "exit\n") == 0)
+	if (strcmp(tmp, "exit\n") == 0)
 		{
 			free(tmp);
 			exit(EXIT_SUCCESS);
-			}*/
+		}
 	return(tmp);
 }
