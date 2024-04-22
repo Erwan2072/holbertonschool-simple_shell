@@ -18,7 +18,7 @@ int execute(char **args, char **env)
 			printf("file_path NULL: %s\n", file_path);
 			exit (-1);
 		}
-	printf("file_path: %s\n", file_path)
+	printf("file_path: %s\n", file_path);
 	child_pid = fork();
 	if (child_pid == 0)
 	{
