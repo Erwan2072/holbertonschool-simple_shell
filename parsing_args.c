@@ -3,7 +3,7 @@
 char **parsing_args(char *line)
 {
 	int bufsize = 128, position = 0;
-	char **tokens = malloc(bufsize * sizeof(char*));
+	char **tokens = malloc(bufsize *sizeof(char*));
 	char *token;
 
 	if (!tokens)
@@ -13,7 +13,8 @@ char **parsing_args(char *line)
 	}
 
 	token = strtok(line, " \n");
-	while (token != NULL) {
+	while (token != NULL)
+	{
 		tokens[position] = token;
 		position++;
 		token = strtok(NULL, " \n");

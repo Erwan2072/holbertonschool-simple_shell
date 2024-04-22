@@ -12,7 +12,7 @@ int main(int argc, char **argv, char **env)
 	/*size_t len = 0;*/
 	char **command = NULL;
 
-	if(argc > 1)
+	if (argc > 1)
 	{
 		/*Mode non interactif : arguments de ligne de commande fournis*/
 		tmp = argv[1]; /*Utilisez le premier argument comme commande*/
@@ -22,9 +22,9 @@ int main(int argc, char **argv, char **env)
 	else
 	{
 		/*Mode interactif : pas d'arguments de ligne de commande*/
-		while(1)
+		while (1)
 		{
-			if(isatty(STDIN_FILENO))/*Vérifie si le prog est> mode interactif*/
+			if (isatty(STDIN_FILENO))/*Vérifie si le prog est> mode interactif*/
 				printf("($) "); /*Affiche le prompt*/
 			tmp = readline();/*Lire la commande depuis stdin*/
 			command = parsing_args(tmp);

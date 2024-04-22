@@ -7,7 +7,7 @@ int execute(char **args, char **env)
 	char *file_path;
 
 	printf("Command to execute: ");
-	for(i = 0; args[i] != NULL; i++)
+	for (i = 0; args[i] != NULL; i++)
 	{
 		printf("%s ", args[i]);
 	}

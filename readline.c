@@ -17,9 +17,9 @@ char *readline(void)
 		}
 	}
 	if (strcmp(tmp, "exit\n") == 0)
-		{
-			free(tmp);
-			exit(EXIT_SUCCESS);
-		}
-	return(tmp);
+	{
+		free(tmp);
+		exit(EXIT_SUCCESS);
+	}
+	return (tmp);
 }

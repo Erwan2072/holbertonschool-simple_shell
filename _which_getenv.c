@@ -1,9 +1,8 @@
 #include "shell.h"
 /**
  * _which - Find and print the full path of a given executable file in PATH
- * @argc: Number of arguments
- * @argv: Array of arguments
- *
+ * @cmd: Number of arguments
+ * @env: Array of arguments
  * Return: 0 if file found, -1 otherwise
  */
 char *_which(char *cmd, char **env)
@@ -52,25 +51,25 @@ char *_which(char *cmd, char **env)
  * _getenv - Find the environment variable
  * @name: Environment variable name
  * @env: Array of environment variables
- * Return: Pointer to the content of the environment variable, NULL if not found
+ * Return: Pointer to the content of the env variable, NULL if not found
  */
 char *_getenv(const char *name, char **env)
 {
-    int i, j;
+	int i, j;
 
-    for (i = 0; env[i]; i++)
-    {
-        for (j = 0; env[i][j]; j++)
-        {
-            if (env[i][j] == name[j])
-                continue;
-            else if (env[i][j] == '=' && name[j] == '\0')
-            {
-                return (env[i] + j + 1); /*Return contenu var d'environnement*/
-            }
-            else
-                break;
-        }
-    }
-    return (NULL); /*Variable d'environnement non trouvée, retourne NULL*/
+	for (i = 0; env[i]; i++)
+	{
+		for (j = 0; env[i][j]; j++)
+		{
+			if (env[i][j] == name[j])
+				continue;
+			else if (env[i][j] == '=' && name[j] == '\0')
+			{
+				return (env[i] + j + 1); /*Return contenu var d'environnement*/
+			}
+			else
+				break;
+		}
+	}
+	return (NULL); /*Variable d'environnement non trouvée, retourne NULL*/
 }
