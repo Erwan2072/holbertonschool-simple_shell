@@ -15,7 +15,7 @@ int execute(char **args, char **env)
 	file_path = _which(args[0], env);
 		if (file_path == NULL)
 		{
-			printf("error file_path , NULL")
+			printf("error file_path , NULL");
 			return (-1);
 		}
 	printf("file_path: %s\n", file_path);
