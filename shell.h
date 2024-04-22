@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
 
 int main(int argc, char **argv, char **env);
 char **args_array(char *user_input);
