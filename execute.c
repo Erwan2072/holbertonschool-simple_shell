@@ -2,7 +2,7 @@
 
 int execute(char **args, char **env)
 {
-	pid_t child_pid, pid;
+	pid_t child_pid;
 	int status, i;
 	char *file_path;
 
@@ -12,7 +12,7 @@ int execute(char **args, char **env)
 		printf("%s ", args[i]);
 	}
 	printf("\n");
-	char *file_path = _which(args[0], env);
+	file_path = _which(args[0], env);
 	printf("file_path: %s\n", file_path);
 	child_pid = fork();
 	if (child_pid == 0)
@@ -29,7 +29,7 @@ int execute(char **args, char **env)
 		return(-1);
 	}
 	else
-		pid = wait(&status);
+		wait(&status);
 
 	return (0);
 }
