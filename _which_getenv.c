@@ -50,7 +50,6 @@ char *_which(char *cmd, char **env)
                 free(filepath);
                 token = strtok(NULL, ":");
         }
-
         free(copy_path);
         return (NULL);
 }
@@ -73,7 +72,7 @@ char *_getenv(const char *name, char **env)
 				continue;
 			else if (env[i][j] == '=' && name[j] == '\0')
 			{
-				return (env[i] + j + 1); /*Return contenu var d'environnement*/
+				return (env[i] + j + 1);/*Return cont var env */
 			}
 			else
 				break;
