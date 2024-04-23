@@ -94,5 +94,5 @@ The command to use the man page is :
 
 ## AUTHORS
 
-Joshua Laborne [@Jlaborne] (https://github.com/Jlaborne)
+Joshua Laborne [@Jlaborne](https://github.com/Jlaborne)
 Erwan Lebreton [@Erwan2072](https://github.com/Erwan2072)
