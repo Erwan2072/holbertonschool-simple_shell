@@ -12,7 +12,7 @@ int main(int argc, char **argv, char **env)
 	char *tmp = NULL;
 	/*size_t len = 0;*/
 	char **command = NULL;
-	int resultat;
+	int resultat = 0;
 
 	if (argc > 1)
 	{
