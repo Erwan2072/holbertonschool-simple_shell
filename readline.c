@@ -7,10 +7,10 @@ char *readline(void)
 
 	if (getline(&tmp, &len, stdin) == -1)
 	{
-		if (feof(stdin))
+		/*if (feof(stdin))
 		{
-			exit(EXIT_SUCCESS);/*we recieved an EOF*/
-		}
+			exit(EXIT_SUCCESS);/*we recieved an EOF
+		 }*/
 		else
 		{
 			exit(EXIT_FAILURE);
