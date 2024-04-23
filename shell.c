@@ -4,6 +4,7 @@
  *        Prompts the user for input and processes commands.
  * @argc: Number of command-line arguments.
  * @argv: Array of command-line arguments.
+ * @env: An array of strings containing the environment variables
  * Return: Always 0.
  */
 int main(int argc, char **argv, char **env)

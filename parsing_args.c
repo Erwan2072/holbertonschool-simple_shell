@@ -1,5 +1,11 @@
 #include "shell.h"
 
+/**
+ * parsing_args - Function to parse a command line into tokens
+ * @line: The command line to parse
+ * Return: An array of strings (tokens) representing the command line arguments
+ */
+
 char **parsing_args(char *line)
 {
 	int bufsize = 128, position = 0;
