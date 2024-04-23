@@ -7,14 +7,7 @@ char *readline(void)
 
 	if (getline(&tmp, &len, stdin) == -1)
 	{
-		/*if (feof(stdin))
-		{
-			exit(EXIT_SUCCESS);/*we recieved an EOF
-		 }*/
-		else
-		{
-			exit(EXIT_FAILURE);
-		}
+		exit(EXIT_FAILURE);
 	}
 	if (strcmp(tmp, "exit\n") == 0)
 	{
