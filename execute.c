@@ -1,5 +1,11 @@
 #include "shell.h"
 
+/**
+ * execute - command executor
+ * @args: An array of char str the arguments of the command to be executed
+ * @env: An array of str the environment in which the command is to be executed
+ *Return: always 0
+ */
 int execute(char **args, char **env)
 {
 	pid_t child_pid;
