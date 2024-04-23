@@ -12,14 +12,14 @@ char *_which(char *cmd, char **env)
 	char copy_cmd[150];
 
 	if (copy_path != NULL)
-		copy_path = strdup(_getenv("PATH", env));
+		copy_path = _strdup(_getenv("PATH", env));
 	/*check if it's an executable or absolute path*/
 	if (cmd[0] == '/' || (cmd[0] == '.'))
 	{
 		if (stat(cmd, &st) == 0)
 		{
 			free(copy_path);
-			return (strdup(cmd));
+			return (_strdup(cmd));
 		}
 	}
 
@@ -28,14 +28,14 @@ char *_which(char *cmd, char **env)
 	if (token != NULL)
 	{
 		do {
-			strcpy(copy_cmd, token); /* concatenate*/
-			strcat(copy_cmd, "/");
-			strcat(copy_cmd, cmd);
+			_strncpy(copy_cmd, token); /* concatenate*/
+			_strncat(copy_cmd, "/");
+			_strncat(copy_cmd, cmd);
 
 			if (stat(copy_cmd, &st) == 0)/* compare*/
 			{
 				free(copy_path);
-				return (strdup(copy_cmd)); /* return if it exist*/
+				return (_strdup(copy_cmd)); /*return if exist*/
 			}
 			else
 				copy_cmd[0] = 0;
@@ -65,7 +65,7 @@ char *_getenv(const char *name, char **env)
 				continue;
 			else if (env[i][j] == '=' && name[j] == '\0')
 			{
-				return (env[i] + j + 1); /*Return contenu var d'environnement*/
+				return (env[i] + j + 1);/*Return cont var env */
 			}
 			else
 				break;
