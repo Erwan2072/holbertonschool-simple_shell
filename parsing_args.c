@@ -8,7 +8,7 @@ char **parsing_args(char *line)
 
 	if (!tokens)
 	{
-		fprintf(stderr, "lsh: allocation error\n");
+		fprintf(stderr, "allocation error\n");
 		exit(EXIT_FAILURE);
 	}
 
