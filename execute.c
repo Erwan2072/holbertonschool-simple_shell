@@ -14,7 +14,6 @@ int execute(char **args, char **env)
 		if (file_path == NULL)
 		{
 			printf("No such file or directory\n");
-			free(file_path);
 			return (-1);
 		}
 	child_pid = fork();
