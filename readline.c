@@ -12,6 +12,7 @@ char *readline(void)
 
 	if (getline(&tmp, &len, stdin) == -1)
 	{
+		free(tmp);
 		exit(EXIT_FAILURE);
 	}
 	if (strcmp(tmp, "exit\n") == 0)

@@ -31,13 +31,18 @@ int main(int argc, char **argv, char **env)
 			tmp = readline();/*Lire la commande depuis stdin*/
 			command = parsing_args(tmp);
 			execute(command, env);
-			free(tmp); /*Libérer la mémoire allouée par getline*/
+			free(tmp);
+			free(command);
+			command = NULL;
 			tmp = NULL; /*Réinitialiser tmp pour éviter les fuites de mémoire*/
 		}
 	}
 
 	/*Libérer la mémoire*/
-	free(command);
+	if (command != NULL)
+	{
+		free(command);
+	}
 
 	return (resultat);
 }
