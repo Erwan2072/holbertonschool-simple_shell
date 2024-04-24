@@ -17,7 +17,7 @@ int main(int argc, char **argv, char **env)
 	if (argc > 1)
 	{
 		/*Mode non interactif : arguments de ligne de commande fournis*/
-		tmp = argv[1]; /*Utilisez le premier argument comme commande*/
+		tmp = argv[0]; /*Utilisez le premier argument comme commande*/
 		command = parsing_args(tmp);
 		resultat = execute(command, env);
 	}
