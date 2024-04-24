@@ -6,16 +6,13 @@ int execute(char **args, char **env)
 	int status;
 	char *file_path;
 
-	/*for(i = 0; args[i] != NULL; i++)
-	{
-		printf("%s ", args[i]);
-		}*/
 	file_path = _which(args[0], env);
-		if (file_path == NULL)
-		{
-			printf("No such file or directory\n");
-			return (-1);
-		}
+	if (file_path == NULL)
+	{
+		printf("No such file or directory\n");
+		return (-1);
+	}
+
 	child_pid = fork();
 	if (child_pid == 0)
 	{
@@ -33,8 +30,10 @@ int execute(char **args, char **env)
 		return (-1);
 	}
 	else
+	{
 		wait(&status);
+		free(file_path);
+	}
 
-	free(file_path);
 	return (0);
 }

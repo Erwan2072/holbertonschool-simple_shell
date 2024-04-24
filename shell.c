@@ -10,7 +10,6 @@
 int main(int argc, char **argv, char **env)
 {
 	char *tmp = NULL;
-	/*size_t len = 0;*/
 	char **command = NULL;
 	int resultat = 0;
 
@@ -20,6 +19,7 @@ int main(int argc, char **argv, char **env)
 		tmp = argv[0]; /*Utilisez le premier argument comme commande*/
 		command = parsing_args(tmp);
 		resultat = execute(command, env);
+		free(command);
 	}
 	else
 	{
@@ -37,16 +37,5 @@ int main(int argc, char **argv, char **env)
 			tmp = NULL; /*Réinitialiser tmp pour éviter les fuites de mémoire*/
 		}
 	}
-
-	/*Libérer la mémoire*/
-	if (command != NULL)
-	{
-		free(command);
-	}
-	if (tmp != NULL)
-	{
-		free(tmp);
-	}
-
 	return (resultat);
 }

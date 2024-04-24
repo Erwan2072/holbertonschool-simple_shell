@@ -10,11 +10,12 @@ char *_which(char *cmd, char **env)
 	char *path = _getenv("PATH", env);
 	char *filepath = NULL;
 	char *copy_path = strdup(path);
-	char *token = strtok(copy_path, ":");
+	char *token = strtok(copy_path, ":");;
 
 	if (path == NULL)
 	{
 		printf("Error: PATH environment variable not set.\n");
+		free(copy_path);
 		return (NULL);
 	}
 	if (copy_path == NULL)
@@ -23,7 +24,10 @@ char *_which(char *cmd, char **env)
 		return (NULL);
 	}
 	if (cmd[0] == '/' || cmd[0] == '.')
+	{
+		free(copy_path);
 		return (cmd);
+	}
 
 	while (token != NULL)
 	{
@@ -45,7 +49,7 @@ char *_which(char *cmd, char **env)
 		free(filepath);
 		token = strtok(NULL, ":");
 	}
-	free(filepath);
+	free(token);
 	free(copy_path);
 	return (NULL);
 }
