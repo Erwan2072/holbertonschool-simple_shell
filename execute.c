@@ -20,7 +20,6 @@ int execute(char **args, char **env)
 		if (execve(file_path, args, env) == -1)
 		{
 			printf("erreur exec \n");
-			free(file_path);
 			return (-1);
 		}
 	}

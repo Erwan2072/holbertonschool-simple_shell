@@ -29,12 +29,24 @@ int main(int argc, char **argv, char **env)
 			if (isatty(STDIN_FILENO))/*Vérifie si le prog est> mode interactif*/
 				printf("$ "); /*Affiche le prompt*/
 			tmp = readline();/*Lire la commande depuis stdin*/
+			if (tmp == NULL)
+			{
+				printf("\n");
+				break;
+			}
 			command = parsing_args(tmp);
-			execute(command, env);
+			if (command == NULL)
+			{
+				free(tmp);
+				continue;
+			}
+			resultat = execute(command, env);
 			free(tmp);
-			free(command);
-			command = NULL;
-			tmp = NULL; /*Réinitialiser tmp pour éviter les fuites de mémoire*/
+			if (command != NULL)
+                        {
+                                free(command);
+                                continue;
+                        }
 		}
 	}
 	return (resultat);
