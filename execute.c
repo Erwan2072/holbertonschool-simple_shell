@@ -22,6 +22,7 @@ int execute(char **args, char **env)
 			exit(EXIT_FAILURE);
 		}
 	}
+
 	else if (child_pid < 0)
 	{
 		printf("erreur fork \n");
@@ -33,7 +34,7 @@ int execute(char **args, char **env)
 		/*process child is finish correctly*/
 		waitpid(child_pid, &status, 0);
 
-		if (WEXITSTATUS(status));
+		if (WEXITSTATUS(status))
 		{
 			free(file_path);
 			return WEXITSTATUS(status);
@@ -42,7 +43,8 @@ int execute(char **args, char **env)
 		{
 			/*process child is finish anormale*/
 			free(file_path);
-			exit(127);
+			return (-1);
+		}
 	}
 
 	return (0);
