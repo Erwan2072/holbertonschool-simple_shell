@@ -30,7 +30,19 @@ int execute(char **args, char **env)
 	}
 	else
 	{
-		wait(&status);
+		/*process child is finish correctly*/
+		waitpid(child_pid, &status, 0);
+
+		if (WEXITSTATUS(status));
+		{
+			free(file_path);
+			return WEXITSTATUS(status);
+		}
+		else
+		{
+			/*process child is finish anormale*/
+			free(file_path);
+			exit(127);
 	}
 
 	return (0);
