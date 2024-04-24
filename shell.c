@@ -12,43 +12,33 @@ int main(int argc, char **argv, char **env)
 	char *tmp = NULL;
 	char **command = NULL;
 	int resultat = 0;
+	(void) argc;
+	(void) argv;
 
-	if (argc > 1)
+	if (isatty(STDIN_FILENO))
+		printf("$ ");
+
+	/*Mode interactif : pas d'arguments de ligne de commande*/
+	while ((tmp = readline()) != NULL)
 	{
-		/*Mode non interactif : arguments de ligne de commande fournis*/
-		tmp = argv[0]; /*Utilisez le premier argument comme commande*/
+		if (isatty(STDIN_FILENO))
+			printf("$ ");
+		if (tmp == NULL)
+		{
+			printf("\n");
+			break;
+		}
+
 		command = parsing_args(tmp);
+
+		if (command == NULL)
+		{
+			free(tmp);
+			continue;
+		}
 		resultat = execute(command, env);
+		free(tmp);
 		free(command);
 	}
-	else
-	{
-		/*Mode interactif : pas d'arguments de ligne de commande*/
-		while (1)
-		{
-			if (isatty(STDIN_FILENO))/*Vérifie si le prog est> mode interactif*/
-				printf("$ "); /*Affiche le prompt*/
-			tmp = readline();/*Lire la commande depuis stdin*/
-			if (tmp == NULL)
-			{
-				printf("\n");
-				break;
-			}
-			command = parsing_args(tmp);
-			if (command == NULL)
-			{
-				free(tmp);
-				continue;
-			}
-			resultat = execute(command, env);
-			free(tmp);
-			if (command != NULL)
-                        {
-                                free(command);
-                                continue;
-                        }
-		}
-	}
-	printf("\nresultat %d\n",resultat);
 	return (resultat);
 }

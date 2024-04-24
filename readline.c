@@ -13,12 +13,12 @@ char *readline(void)
 	if (getline(&tmp, &len, stdin) == -1)
 	{
 		free(tmp);
-		exit(EXIT_FAILURE);
+		return (NULL);
 	}
 	if (strcmp(tmp, "exit\n") == 0)
 	{
 		free(tmp);
-		exit(EXIT_SUCCESS);
+		return (NULL);
 	}
 	return (tmp);
 }
