@@ -7,6 +7,7 @@ int execute(char **args, char **env)
 	char *file_path;
 
 	file_path = _which(args[0], env);
+	printf("file_path: %s", file_path);
 	if (file_path == NULL)
 	{
 		printf("No such file or directory\n");
