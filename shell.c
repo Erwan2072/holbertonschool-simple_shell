@@ -49,5 +49,6 @@ int main(int argc, char **argv, char **env)
                         }
 		}
 	}
+	printf("\nresultat %d\n",resultat);
 	return (resultat);
 }

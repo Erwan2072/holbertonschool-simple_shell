@@ -26,12 +26,12 @@ int execute(char **args, char **env)
 	else if (child_pid < 0)
 	{
 		printf("erreur fork \n");
-		free(file_path);
 		return (-1);
 	}
 	else
 	{
 		wait(&status);
+		free(file_path);
 	}
 
 	return (0);
