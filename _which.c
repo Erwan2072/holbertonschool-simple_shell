@@ -45,6 +45,8 @@ char *_which(char *cmd, char **env)
 		free(filepath);
 		token = strtok(NULL, ":");
 	}
+	free(filepath);
+	free(token);
 	free(copy_path);
 	return (NULL);
 }

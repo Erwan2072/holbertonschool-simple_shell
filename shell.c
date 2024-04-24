@@ -43,6 +43,10 @@ int main(int argc, char **argv, char **env)
 	{
 		free(command);
 	}
+	if (tmp != NULL)
+	{
+		free(tmp);
+	}
 
 	return (resultat);
 }
