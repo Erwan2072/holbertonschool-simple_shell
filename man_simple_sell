@@ -3,7 +3,7 @@
 .B Simple_shell \- an command interpreter
 
 .SH SYNOPSIS
-.B #include \(dqmain.h\(dq
+.B #include \(dqshell.h\(dq
 .TP
 .B ./hsh [options] [file]
 
