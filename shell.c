@@ -36,7 +36,7 @@ int main(int argc, char **argv, char **env)
 			free(tmp);
 			continue;
 		}
-		resultat = execute(command, env);
+		resultat = execute(command, argv[0], env);
 		free(tmp);
 		free(command);
 	}

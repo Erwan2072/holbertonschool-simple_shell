@@ -13,7 +13,7 @@ int main(int argc, char **argv, char **env);
 char **args_array(char *user_input);
 char **parsing_args(char *line);
 char *readline(void);
-int execute(char **args, char **env);
+int execute(char **args,char *argv, char **env);
 char *_which(char *cmd, char **env);
 char *_getenv(const char *name, char **env);
 

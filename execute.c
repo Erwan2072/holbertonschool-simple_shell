@@ -1,6 +1,6 @@
 #include "shell.h"
 
-int execute(char **args, char **env)
+int execute(char **args, char *program_name, char **env)
 {
 	pid_t child_pid;
 	int status = 0;
@@ -9,7 +9,7 @@ int execute(char **args, char **env)
 	file_path = _which(args[0], env);
 	if (file_path == NULL)
 	{
-		printf("%s: not found\n", args[0]);
+		fprintf(stderr, "%s: 1: %s: not found\n",program_name , args[0]);
 		return (127);
 	}
 
@@ -18,14 +18,15 @@ int execute(char **args, char **env)
 	{
 		if (execve(file_path, args, env) == -1)
 		{
-			printf("erreur exec \n");
+			fprintf(stderr, "%s: 1: %s: not found\n",program_name , args[0]);
+			printf(" \n");
 			exit(127);
 		}
 	}
 
 	else if (child_pid < 0)
 	{
-		printf("erreur fork \n");
+		perror("erreur fork");
 		return (-1);
 	}
 	else
