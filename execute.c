@@ -33,7 +33,6 @@ int execute(char **args, char **env)
 	else
 	{
 		wait(&status);
-		free(file_path);
 	}
 
 	return (0);
