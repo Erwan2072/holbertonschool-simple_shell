@@ -1,0 +1,1 @@
+Image folder to add images to our main README.md and our Flowchart
