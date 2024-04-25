@@ -3,7 +3,7 @@
  * _which - Find and print the full path of a given executable file in PATH
  * @cmd: Number of arguments
  * @env: Array of arguments
- * Return: 0 if file found, -1 otherwise
+ * Return: 0 if file found, NULL otherwise
  */
 char *_which(char *cmd, char **env)
 {
