@@ -8,22 +8,15 @@
  */
 char *_getenv(const char *name, char **env)
 {
-	int i, j;
+	int i;
+	size_t len = strlen(name);
 
-	for (i = 0; env[i]; i++)
-	{
-		for (j = 0; env[i][j]; j++)
-		{
-			if (env[i][j] == name[j])
-				continue;
-			else if (env[i][j] == '=' && name[j] == '\0')
-			{
-				return (env[i] + j + 1);/*Return cont var env */
-			}
-			else
-				break;
-		}
-	}
-	return (NULL); /*Variable d'environnement non trouvée, retourne NULL*/
-}
-
+    for (i = 0; env[i] != NULL; i++)
+    {
+        if (strncmp(env[i], name, len) == 0 && env[i][len] == '=')
+        {
+            return &(env[i][len + 1]);
+        }
+    }
+    return NULL; /* Variable d'environnement non trouvée */
+}	
