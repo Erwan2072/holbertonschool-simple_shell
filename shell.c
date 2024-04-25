@@ -23,10 +23,11 @@ int main(int argc, char **argv, char **env)
 	{
 		if (isatty(STDIN_FILENO))/*Check if the standard input is a terminal*/
 			printf("$ ");
-		if (tmp == NULL)
+		if (strcmp(tmp, "env\n") == 0)
 		{
-			printf("\n");
-			break;/* Exit the while loop */
+			_print_env(env);
+			free(tmp);
+			continue;
 		}
 		if (tmp[0] == '\0')
 		{

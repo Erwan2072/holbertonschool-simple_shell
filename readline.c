@@ -20,5 +20,13 @@ char *readline(void)
 		free(tmp);
 		return (NULL);/*quit the program*/
 	}
+
 	return (tmp);/*Return the read line*/
+}
+void _print_env(char **env)
+{
+	int i = 0;
+
+	while (env[i])
+		printf("%s\n", env[i++]);
 }
