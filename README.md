@@ -2,7 +2,7 @@
 
 <img src ="https://github.com/Erwan2072/holbertonschool-simple_shell/blob/main/img/joshua-laborne-simple-shell-erwan-lebreton.png">
 
-CONTENTS
+##CONTENTS
 - [DESCRIPTION](#description)
 - [FLOWCHART](#flowchart)
 - [REQUIREMENTS](#requirements)
@@ -22,7 +22,7 @@ The shell is a powerful tool for interacting with a command-line operating syste
 
 ##  FLOWCHART
 
-[*Return Contents*](#contents)
+[*Contents*](#contents)
 
 ##  REQUIREMENTS
 
