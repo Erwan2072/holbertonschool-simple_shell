@@ -19,24 +19,24 @@ char **parsing_args(char *line)
 	}
 
 	token = strtok(line, " \n");
-	if (token == NULL)
-	{
-		tokens[0] = malloc(sizeof(char));
-		if (!tokens[0])
-		{
-			fprintf(stderr, "allocation error\n");
-			exit(EXIT_FAILURE);
-		}
-		tokens[0][0] = '\0';
-		tokens[1] = NULL;
-		return (tokens);
-	}
 	while (token != NULL)
 	{
 		tokens[position] = token;
 		position++;
 		token = strtok(NULL, " \n");
 	}
+	if (position == 0)
+	{
+		tokens[position] = malloc(sizeof(char));
+		if (!tokens[position])
+		{
+			fprintf(stderr, "allocation error\n");
+			exit(EXIT_FAILURE);
+		}
+		tokens[position][0] = '\0';
+		position++;
+	}
+
 	tokens[position] = NULL;
 	return (tokens);
 }
