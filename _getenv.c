@@ -13,10 +13,11 @@ char *_getenv(const char *name, char **env)
 
 	for (i = 0; env[i] != NULL; i++)
 	{
+		/* Check if the variable matches the name */
 		if (strncmp(env[i], name, len) == 0 && env[i][len] == '=')
 		{
-			return (&(env[i][len + 1]));
+			return (&(env[i][len + 1]));/*Return the value of the variable*/
 		}
 	}
-	return (NULL); /* Variable d'environnement non trouvée */
+	return (NULL); /* Return NULL if the variable is not found */
 }
