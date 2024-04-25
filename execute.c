@@ -27,7 +27,6 @@ if (child_pid == 0)/* child process */
 	{
 		/* If Exec fails, prints msg err and closes child process */
 		fprintf(stderr, "%s: 1: %s: not found\n", program_name, args[0]);
-		printf(" \n");
 		exit(127);
 	}
 }

@@ -19,6 +19,18 @@ char **parsing_args(char *line)
 	}
 
 	token = strtok(line, " \n");
+	if (token == NULL)
+	{
+		tokens[0] = malloc(sizeof(char));
+		if (!tokens[0])
+		{
+			fprintf(stderr, "allocation error\n");
+			exit(EXIT_FAILURE);
+		}
+		tokens[0][0] = '\0';
+		tokens[1] = NULL;
+		return (tokens);
+	}
 	while (token != NULL)
 	{
 		tokens[position] = token;
