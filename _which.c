@@ -29,7 +29,6 @@ char *_which(char *cmd, char **env)
 	while (token != NULL)
 	{
 		filepath = malloc(strlen(token) + strlen(cmd) + 2);
-
 		if (filepath == NULL)
 		{
 			perror("Memory allocation failed");
