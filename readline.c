@@ -23,6 +23,11 @@ char *readline(void)
 
 	return (tmp);/*Return the read line*/
 }
+/**
+ * _print_env - Prints the environement variables
+ * @env: The array of strings that contain environement variable
+ * Return: Always nothing
+ */
 void _print_env(char **env)
 {
 	int i = 0;
