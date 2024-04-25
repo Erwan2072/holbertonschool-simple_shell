@@ -15,7 +15,7 @@ char *file_path;
 file_path = _which(args[0], env);
 if (file_path == NULL)
 {
-	fprintf(stderr, "%s: 1: %s: not foundfile path\n", program_name, args[0]);
+	fprintf(stderr, "%s: 1: %s: not found\n", program_name, args[0]);
 	return (127);/*return error code*/
 }
 
