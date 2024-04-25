@@ -22,6 +22,7 @@ The shell is a powerful tool for interacting with a command-line operating syste
 
 ##  FLOWCHART
 
+<img src ="https://github.com/Erwan2072/holbertonschool-simple_shell/blob/main/img/Simple%20Shell.png">
 [*Return Contents*](#contents)
 
 ##  REQUIREMENTS
