@@ -18,10 +18,10 @@ char **parsing_args(char *line)
 		exit(EXIT_FAILURE);/* Exit the program with an error code */
 	}
 
-	token = strtok(line, " \n");/*Split the line into tokens based on spaces and newlines*/
+	token = strtok(line, " \n");/*Split the line into tokens*/
 	while (token != NULL)
 	{
-		tokens[position] = token;/* Store the token in the arguments array */
+		tokens[position] = token;/* Store the token in the args array */
 		position++;
 		token = strtok(NULL, " \n");/*next token */
 	}
