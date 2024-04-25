@@ -21,7 +21,7 @@ char *_which(char *cmd, char **env)
 		perror("Memory allocation failed");
 		return (NULL);
 	}
-	if (cmd[0] == '/' || cmd[0] == '.')
+	if (cmd[0] == '/' || cmd[0] == '.')/* check if cmd is executable*/
 	{
 		free(copy_path);
 		return (cmd);
@@ -36,7 +36,7 @@ char *_which(char *cmd, char **env)
 			return (NULL);
 		}
 		else
-			sprintf(filepath, "%s/%s", token, cmd);
+			sprintf(filepath, "%s/%s", token, cmd);/* concatene token and cmd*/
 		if (access(filepath, F_OK | X_OK) == 0)
 		{
 			free(copy_path);
