@@ -22,7 +22,7 @@ if (file_path == NULL)
 child_pid = fork();/* creation process child */
 if (child_pid == 0)/* child process */
 {
-	/* Exec cmd with arguments then, if it fails, close the process */
+	/* Exec cmd with arguments then, then if successful, close the process */
 	if (execve(file_path, args, env) == -1)
 	{
 		/* If Exec fails, prints msg err and closes child process */
