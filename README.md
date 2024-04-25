@@ -1,5 +1,6 @@
+# ***Simple Shell***
 
-[![forthebadge](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NTcuNTkzNzk1Nzc2MzY3MiIgaGVpZ2h0PSIzNSIgdmlld0JveD0iMCAwIDQ1Ny41OTM3OTU3NzYzNjcyIDM1Ij48cmVjdCB3aWR0aD0iMTU2LjYwOTM5MDI1ODc4OTA2IiBoZWlnaHQ9IjM1IiBmaWxsPSIjNGJmMzMxIi8+PHJlY3QgeD0iMTU2LjYwOTM5MDI1ODc4OTA2IiB3aWR0aD0iMTQxLjI2NTY0MDI1ODc4OTA2IiBoZWlnaHQ9IjM1IiBmaWxsPSIjMzg5QUQ1Ii8+PHRleHQgeD0iNzguMzA0Njk1MTI5Mzk0NTMiIHk9IjIxLjUiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtZmFtaWx5PSInUm9ib3RvJywgc2Fucy1zZXJpZiIgZmlsbD0iI0ZGRkZGRiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgbGV0dGVyLXNwYWNpbmc9IjIiPkpPU0hVQSBMQUJPUk5FPC90ZXh0Pjx0ZXh0IHg9IjIyNy4yNDIyMTAzODgxODM2IiB5PSIyMS41IiBmb250LXNpemU9IjEyIiBmb250LWZhbWlseT0iJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmIiBmaWxsPSIjRkZGRkZGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXdlaWdodD0iOTAwIiBsZXR0ZXItc3BhY2luZz0iMiI+U0lNUExFIFNIRUxMPC90ZXh0PjxyZWN0IHg9IjI5Ny44NzUwMzA1MTc1NzgxIiB3aWR0aD0iMTU5LjcxODc2NTI1ODc4OTA2IiBoZWlnaHQ9IjM1IiBmaWxsPSIjMTJmNjFiIi8+PHRleHQgeD0iMzc3LjczNDQxMzE0Njk3MjY2IiB5PSIxNy41IiBmb250LXNpemU9IjEyIiBmb250LWZhbWlseT0iJ1JvYm90bycsIHNhbnMtc2VyaWYiIGZpbGw9IiNGRkZGRkYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSI1MDAiIGFsaWdubWVudC1iYXNlbGluZT0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iMiI+RVJXQU4gTEVCUkVUT048L3RleHQ+PC9zdmc+)](https://forthebadge.com)
+<img src ="https://github.com/Erwan2072/holbertonschool-simple_shell/blob/main/img/joshua-laborne-simple-shell-erwan-lebreton.png">
 
 CONTENTS
 - [DESCRIPTION](#description)
@@ -17,10 +18,11 @@ The shell is a command-line interface enabling the user to interact with a compu
 
 The shell is a powerful tool for interacting with a command-line operating system, enabling users to execute commands, launch programs, navigate directories, manage files and processes, and automate tasks.
 
-
+[*Return Contents*](#contents)
 
 ##  FLOWCHART
 
+[*Return Contents*](#contents)
 
 ##  REQUIREMENTS
 
@@ -70,12 +72,14 @@ _List of authorized functions :
 	wait4 (man 2 wait4)
 	write (man 2 write)
 ```
+[*Return Contents*](#contents)
 
 ### COMPILATION CMD
 
 ```
 	gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ```
+[*Return Contents*](#contents)
 
 ### EXAMPLES
 
@@ -95,12 +99,15 @@ AUTHORS  README.md  _getenv.c  _which.c  execute.c  hsh  man_simple_sell  parsin
 root@5c5a57f010d74674ba5a58fcbe9e77ff-2377118072:/holbertonschool-simple_shell#
 
 ```
+[*Return Contents*](#contents)
 
 ## MAN PAGE
 
 The command to use the man page is :
-
+```
 	man ./man_simple_shell
+```
+[*Return Contents*](#contents)
 
 ### CHECK MEMORY LEAKS
 
@@ -121,6 +128,8 @@ _Non-interactive detailed:_
 ```
 echo "/bin/ls" | valgrind --leak-check=full  --show-leak-kinds=all --track-origins=yes --verbose ./hsh
 ```
+
+[*Return Contents*](#contents)
 
 ## AUTHORS
 
