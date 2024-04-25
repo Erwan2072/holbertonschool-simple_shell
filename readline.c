@@ -10,15 +10,15 @@ char *readline(void)
 	char *tmp = NULL;
 	size_t len = 0;
 
-	if (getline(&tmp, &len, stdin) == -1)
+	if (getline(&tmp, &len, stdin) == -1)/* Read the line from stdin */
 	{
 		free(tmp);
-		return (NULL);
+		return (NULL);/*of error*/
 	}
-	if (strcmp(tmp, "exit\n") == 0)
+	if (strcmp(tmp, "exit\n") == 0)/* Check if the user entered "exit" to quit */
 	{
 		free(tmp);
-		return (NULL);
+		return (NULL);/*quit the program*/
 	}
-	return (tmp);
+	return (tmp);/*Return the read line*/
 }

@@ -12,31 +12,31 @@ char **parsing_args(char *line)
 	char **tokens = malloc(bufsize * sizeof(char *));
 	char *token;
 
-	if (!tokens)
+	if (!tokens)/* Check if memory allocation succeeded */
 	{
 		fprintf(stderr, "allocation error\n");
-		exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);/* Exit the program with an error code */
 	}
 
-	token = strtok(line, " \n");
+	token = strtok(line, " \n");/*Split the line into tokens based on spaces and newlines*/
 	while (token != NULL)
 	{
-		tokens[position] = token;
+		tokens[position] = token;/* Store the token in the arguments array */
 		position++;
-		token = strtok(NULL, " \n");
+		token = strtok(NULL, " \n");/*next token */
 	}
-	if (position == 0)
+	if (position == 0)/* If no tokens were found */
 	{
-		tokens[position] = malloc(sizeof(char));
-		if (!tokens[position])
+		tokens[position] = malloc(sizeof(char));/* Allocate memory for an empty token */
+		if (!tokens[position])/* Check if allocation succeeded */
 		{
 			fprintf(stderr, "allocation error\n");
 			exit(EXIT_FAILURE);
 		}
-		tokens[position][0] = '\0';
+		tokens[position][0] = '\0';/* Add a null character to terminate the string */
 		position++;
 	}
 
-	tokens[position] = NULL;
+	tokens[position] = NULL;/* Add NULL at the end of the arguments array */
 	return (tokens);
 }

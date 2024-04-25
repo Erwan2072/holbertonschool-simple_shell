@@ -15,27 +15,28 @@ int main(int argc, char **argv, char **env)
 	(void) argc;
 	(void) argv;
 
-	if (isatty(STDIN_FILENO))
-		printf("$ ");
+	if (isatty(STDIN_FILENO))/* Check if the stdin is a terminal */
+		printf("$ ");/* Print symbol if so */
 
-	/*Mode interactif : pas d'arguments de ligne de commande*/
-	while ((tmp = readline()) != NULL)
+	
+	while ((tmp = readline()) != NULL)/*Read user input until it's not NULL*/
 	{
-		if (isatty(STDIN_FILENO))
+		if (isatty(STDIN_FILENO))/*Check if the standard input is a terminal*/
 			printf("$ ");
 		if (tmp == NULL)
 		{
 			printf("\n");
-			break;
+			break;/* Exit the while loop */
 		}
 
-		command = parsing_args(tmp);
+		command = parsing_args(tmp);/*Parse the user input to get command arguments*/
 
 		if (command == NULL)
 		{
 			free(tmp);
-			continue;
+			continue;/*Move to the next iteration of the while loop*/
 		}
+		/* Execute the command with the given arguments */
 		resultat = execute(command, argv[0], env);
 		free(tmp);
 		free(command);
