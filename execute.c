@@ -15,14 +15,14 @@ char *file_path;
 file_path = _which(args[0], env);
 if (file_path == NULL)
 {
-	fprintf(stderr, "%s: 1: %s: not found\n", program_name, args[0]);
+	fprintf(stderr, "%s: 1: %s: not foundfile path\n", program_name, args[0]);
 	return (127);/*return error code*/
 }
 
 child_pid = fork();/* creation process child */
 if (child_pid == 0)/* child process */
 {
-	/* Exec cmd with arguments then, if successful, close the process */
+	/* Exec cmd with arguments then, if it fails, close the process */
 	if (execve(file_path, args, env) == -1)
 	{
 		/* If Exec fails, prints msg err and closes child process */
