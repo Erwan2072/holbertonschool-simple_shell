@@ -7,8 +7,8 @@
  */
 char *_which(char *cmd, char **env)
 {
-	char *path = _getenv("PATH", env), char *filepath = NULL;
-	char *copy_path = strdup(path), char *token = strtok(copy_path, ":");
+	char *path = _getenv("PATH", env), *filepath = NULL;
+	char *copy_path = strdup(path), *token = strtok(copy_path, ":");
 
 	if (path == NULL)
 	{
