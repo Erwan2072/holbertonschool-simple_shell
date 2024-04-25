@@ -27,14 +27,7 @@ char **parsing_args(char *line)
 	}
 	if (position == 0)/* If no tokens were found */
 	{
-		tokens[position] = malloc(sizeof(char));/* Allocate memory for an empty token */
-		if (!tokens[position])/* Check if allocation succeeded */
-		{
-			fprintf(stderr, "allocation error\n");
-			exit(EXIT_FAILURE);
-		}
-		tokens[position][0] = '\0';/* Add a null character to terminate the string */
-		position++;
+		return (NULL);
 	}
 
 	tokens[position] = NULL;/* Add NULL at the end of the arguments array */

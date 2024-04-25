@@ -18,7 +18,7 @@ int main(int argc, char **argv, char **env)
 	if (isatty(STDIN_FILENO))/* Check if the stdin is a terminal */
 		printf("$ ");/* Print symbol if so */
 
-	
+
 	while ((tmp = readline()) != NULL)/*Read user input until it's not NULL*/
 	{
 		if (isatty(STDIN_FILENO))/*Check if the standard input is a terminal*/
@@ -27,6 +27,11 @@ int main(int argc, char **argv, char **env)
 		{
 			printf("\n");
 			break;/* Exit the while loop */
+		}
+		if (tmp[0] == '\0')
+		{
+			free(tmp);
+			continue;
 		}
 
 		command = parsing_args(tmp);/*Parse the user input to get command arguments*/
