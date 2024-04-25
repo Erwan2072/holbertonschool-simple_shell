@@ -27,6 +27,7 @@ char **parsing_args(char *line)
 	}
 	if (position == 0)/* If no tokens were found */
 	{
+		free(tokens);
 		return (NULL);
 	}
 
