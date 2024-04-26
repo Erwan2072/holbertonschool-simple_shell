@@ -45,7 +45,7 @@ int main(int argc, char **argv, char **env)
 		/* Execute the command with the given arguments */
 		resultat = execute(command, argv[0], env);
 		free(tmp);
-		free(command);
+		free_args(command);
 	}
 	return (resultat);
 }

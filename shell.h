@@ -17,5 +17,6 @@ int execute(char **args,char *argv, char **env);
 char *_which(char *cmd, char **env);
 char *_getenv(const char *name, char **env);
 void _print_env(char **env);
+void free_args(char **argv);
 
 #endif
